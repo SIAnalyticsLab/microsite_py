@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <title>Python for Data Analysis and Visualization | SI Analytics</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <style>
 :root{
@@ -13,10 +13,11 @@
   --teal:#0F766E;
   --text:#E5E7EB;
   --muted:#9CA3AF;
-  --border:#1F2933;
+  --border:#1F2937;
 }
 
 *{box-sizing:border-box}
+
 body{
   margin:0;
   font-family:Inter,Segoe UI,sans-serif;
@@ -24,35 +25,51 @@ body{
   color:var(--text);
 }
 
+/* ===== Layout ===== */
 .layout{
   display:grid;
   grid-template-columns:260px 1fr;
   min-height:100vh;
 }
 
+@media(max-width:900px){
+  .layout{grid-template-columns:1fr}
+  aside{position:relative}
+}
+
+/* ===== Sidebar ===== */
 aside{
   background:#020617;
-  padding:24px;
+  padding:24px 20px;
+  position:sticky;
+  top:0;
+  height:100vh;
 }
 
 aside h2{
-  font-size:1rem;
+  font-size:0.9rem;
   color:var(--teal);
+  margin-bottom:12px;
+  letter-spacing:.04em;
 }
 
-aside a{
+.nav a{
   display:block;
+  padding:10px 12px;
+  border-radius:8px;
   color:var(--text);
   text-decoration:none;
-  padding:10px;
-  border-radius:6px;
   margin-bottom:6px;
+  font-weight:500;
 }
 
-aside a:hover{
+.nav a:hover,
+.nav a.active{
   background:var(--card);
+  border-left:4px solid var(--teal);
 }
 
+/* ===== Main ===== */
 main{
   padding:32px;
 }
@@ -60,9 +77,12 @@ main{
 .header{
   background:linear-gradient(135deg,#0F172A,#020617);
   padding:28px;
-  border-radius:14px;
+  border-radius:16px;
   margin-bottom:28px;
 }
+
+.header h1{margin:0}
+.header p{color:var(--muted)}
 
 .cards{
   display:grid;
@@ -74,14 +94,14 @@ main{
 .card{
   background:var(--card);
   padding:20px;
-  border-radius:12px;
+  border-radius:14px;
   border:1px solid var(--border);
 }
 
 .weeks{
   background:var(--panel);
-  border-radius:14px;
   padding:20px;
+  border-radius:16px;
 }
 
 .week{
@@ -101,11 +121,12 @@ main{
   border-radius:999px;
   font-size:.75rem;
 }
+
 .btn{
   background:var(--teal);
   color:white;
   padding:8px 14px;
-  border-radius:8px;
+  border-radius:10px;
   text-decoration:none;
   font-weight:600;
 }
@@ -115,21 +136,28 @@ main{
 <body>
 <div class="layout">
 
+<!-- ===== SIDEBAR ===== -->
 <aside>
   <h2>MY COURSES</h2>
-  <a href="index.html">Overview</a>
-  <a href="week1.html">Week 1</a>
-  <a href="week2.html">Week 2</a>
-  <a href="week3.html">Week 3</a>
-  <a href="week4.html">Week 4</a>
-  <a href="week1.html">Week 5</a>
-  <a href="week2.html">Week 6</a>
-  <a href="week3.html">Week 7</a>
-  <a href="week4.html">Week 8</a>
-  <a href="week3.html">Week 9</a>
-  <a href="week4.html">Week 10</a>
+  <nav class="nav">
+    <a class="active"
+       href="https://sianalyticslab.github.io/bootcamps/welcome">
+       Overview
+    </a>
+    <a href="week_one">Week 1</a>
+    <a href="week_two">Week 2</a>
+    <a href="week_three">Week 3</a>
+    <a href="week_four">Week 4</a>
+    <a href="week_five">Week 5</a>
+    <a href="week_six">Week 6</a>
+    <a href="week_seven">Week 7</a>
+    <a href="week_eight">Week 8</a>
+    <a href="week_nine">Week 9</a>
+    <a href="week_ten">Week 10</a>
+  </nav>
 </aside>
 
+<!-- ===== MAIN ===== -->
 <main>
 
 <div class="header">
@@ -138,84 +166,37 @@ main{
 </div>
 
 <div class="cards">
-  <div class="card">
-    <strong>Progress</strong>
-    <p id="progress">0 / 10 weeks</p>
-  </div>
-  <div class="card">
-    <strong>Completion</strong>
-    <p id="completion">0%</p>
-  </div>
-  <div class="card">
-    <strong>Duration</strong>
-    <p>10 Weeks</p>
-  </div>
+  <div class="card"><strong>Progress</strong><p>1 / 10 weeks</p></div>
+  <div class="card"><strong>Completion</strong><p>10%</p></div>
+  <div class="card"><strong>Duration</strong><p>10 Weeks</p></div>
 </div>
 
 <div class="weeks">
   <h2>Weekly Modules</h2>
 
   <div class="week">
-    <div>
-      <strong>Week 1</strong>
-      <div class="badge">Available</div>
-    </div>
-    <a class="btn" href="week1.html">Go to Module</a>
+    <div><strong>Week 1</strong><div class="badge">Available</div></div>
+    <a class="btn" href="week_one">Go to Module</a>
   </div>
 
   <div class="week">
     <div><strong>Week 2</strong><div class="badge">Available</div></div>
-    <a class="btn" href="week2.html">Go to Module</a>
+    <a class="btn" href="week_two">Go to Module</a>
   </div>
 
   <div class="week">
     <div><strong>Week 3</strong><div class="badge">Available</div></div>
-    <a class="btn" href="week3.html">Go to Module</a>
+    <a class="btn" href="week_three">Go to Module</a>
   </div>
 
   <div class="week">
     <div><strong>Week 4</strong><div class="badge">Available</div></div>
-    <a class="btn" href="week4.html">Go to Module</a>
+    <a class="btn" href="week_four">Go to Module</a>
   </div>
-  
-  <div class="week">
-    <div><strong>Week 5</strong><div class="badge">Available</div></div>
-    <a class="btn" href="week3.html">Go to Module</a>
-  </div>
-
-  <div class="week">
-    <div><strong>Week 6</strong><div class="badge">Available</div></div>
-    <a class="btn" href="week3.html">Go to Module</a>
-  </div>
-  <div class="week">
-    <div><strong>Week 7</strong><div class="badge">Available</div></div>
-    <a class="btn" href="week3.html">Go to Module</a>
-  </div>
-
-  <div class="week">
-    <div><strong>Week 8</strong><div class="badge">Available</div></div>
-    <a class="btn" href="week4.html">Go to Module</a>
-  </div>
-  
-  <div class="week">
-    <div><strong>Week 9</strong><div class="badge">Available</div></div>
-    <a class="btn" href="week3.html">Go to Module</a>
-  </div>
-
-  <div class="week">
-    <div><strong>Week 10</strong><div class="badge">Available</div></div>
-    <a class="btn" href="week3.html">Go to Module</a>
-  </div>
-  
 </div>
 
 </main>
 </div>
-
-<script>
-const completed = Object.keys(localStorage).filter(k=>k.startsWith("week")).length;
-document.getElementById("progress").textContent = `${completed} / 10 weeks`;
-document.getElementById("completion").textContent = `${Math.round((completed/10)*100)}%`;
-</script>
 </body>
 </html>
+
